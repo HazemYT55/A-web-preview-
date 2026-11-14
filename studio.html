@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HZM Studio — Creator Dashboard</title>
+<meta name="description" content="Upload, edit and manage your HZMTube videos.">
+<meta name="theme-color" content="#0b0b10">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 28'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff3b5c'/%3E%3Cstop offset='1' stop-color='%23ff7a45'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='40' height='28' rx='8' fill='url(%23g)'/%3E%3Cpath d='M16 8.5v11l10-5.5z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>try{document.documentElement.dataset.theme=(JSON.parse(localStorage.getItem('hzmtube.v1.state')||'{}').theme)||'dark'}catch(e){}</script>
+</head>
+<body class="studio">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="tb-left">
+    <button type="button" class="icon-btn" id="navToggle" aria-label="Toggle navigation"></button>
+    <a class="brand" href="index.html" aria-label="HZMTube home">
+      <svg class="brand-badge" viewBox="0 0 40 28" aria-hidden="true"><defs><linearGradient id="lgB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff3b5c"/><stop offset="1" stop-color="#ff7a45"/></linearGradient></defs><rect width="40" height="28" rx="8" fill="url(#lgB)"/><path d="M16 8.5v11l10-5.5z" fill="#fff"/></svg>
+      <span class="brand-word">HZM<em>Tube</em></span>
+      <span class="brand-tag">Studio</span>
+    </a>
+  </div>
+  <div class="tb-search" id="searchWrap">
+    <form class="search" id="searchForm" role="search">
+      <span class="search-ic" aria-hidden="true"></span>
+      <input id="searchInput" type="text" placeholder="Search your videos" autocomplete="off" aria-label="Search your videos">
+      <button type="button" class="search-clear hidden" id="searchClear" aria-label="Clear search"></button>
+      <button type="submit" class="search-go" aria-label="Search"></button>
+    </form>
+  </div>
+  <div class="tb-right">
+    <button type="button" class="icon-btn only-mobile" id="searchMobileBtn" aria-label="Open search"></button>
+    <button type="button" class="icon-btn" id="themeBtn" aria-label="Toggle appearance"></button>
+    <button type="button" class="btn btn-primary btn-create" id="createBtn" data-action="upload"><span class="cb-ic"></span><span class="cb-tx">Upload</span></button>
+    <div class="tb-pop-wrap">
+      <button type="button" class="icon-btn" id="notifBtn" aria-label="Notifications" aria-expanded="false"><span class="bell-ic"></span><span class="badge hidden" id="notifBadge">0</span></button>
+      <div class="popover hidden" id="notifPop"></div>
+    </div>
+    <div class="tb-pop-wrap">
+      <button type="button" class="avatar-btn" id="avatarBtn" aria-label="Account menu" aria-expanded="false"></button>
+      <div class="popover hidden" id="avatarPop"></div>
+    </div>
+  </div>
+</header>
+
+<div class="scrim hidden" id="drawerScrim"></div>
+<nav class="sidebar s-side" id="sidebar" aria-label="Studio navigation"></nav>
+
+<main class="main" id="main">
+  <div class="s-tabs" role="tablist">
+    <button type="button" class="s-tab" data-action="snav" data-tab="dashboard" role="tab">Dashboard</button>
+    <button type="button" class="s-tab" data-action="snav" data-tab="content" role="tab">Content</button>
+  </div>
+  <div class="content s-content" id="studioRoot"></div>
+</main>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<div id="menuRoot"></div>
+<div id="modalRoot"></div>
+
+<script src="shared.js"></script>
+<script src="storage.js"></script>
+<script src="studio.js"></script>
+</body>
+</html>
